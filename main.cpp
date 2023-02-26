@@ -5,13 +5,13 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch (uMsg)
 	{
-	case WM_INITDIALOG: //Отрабатывает при запуске окна и может создавать элементы окна
+	case WM_INITDIALOG: //РћС‚СЂР°Р±Р°С‚С‹РІР°РµС‚ РїСЂРё Р·Р°РїСѓСЃРєРµ РѕРєРЅР° Рё РјРѕР¶РµС‚ СЃРѕР·РґР°РІР°С‚СЊ СЌР»РµРјРµРЅС‚С‹ РѕРєРЅР°
 	{
 		HICON hIcon = LoadIcon(GetModuleHandle(NULL), MAKEINTRESOURCE(IDI_ICON1));
 		SendMessage(hwnd, WM_SETICON, 0, (LPARAM)hIcon);
 	}
 		break;
-	case WM_COMMAND:	//Обрабатывает сообщения нажатия на кнопки и т.д
+	case WM_COMMAND:	//РћР±СЂР°Р±Р°С‚С‹РІР°РµС‚ СЃРѕРѕР±С‰РµРЅРёСЏ РЅР°Р¶Р°С‚РёСЏ РЅР° РєРЅРѕРїРєРё Рё С‚.Рґ
 		switch (LOWORD(wParam))
 		{
 		case IDC_BUTTON_COPY:
@@ -24,7 +24,7 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			SendMessage(hEditPassword, WM_SETTEXT, 0, (LPARAM)sz_buffer);
 		}
 			break;
-		case IDOK: MessageBox(hwnd, "Была нажата кнопка OK", "Info", MB_OK | MB_ICONINFORMATION); break;
+		case IDOK: MessageBox(hwnd, "ГЃГ»Г«Г  Г­Г Г¦Г ГІГ  ГЄГ­Г®ГЇГЄГ  OK", "Info", MB_OK | MB_ICONINFORMATION); break;
 		case IDCANCEL: EndDialog(hwnd, 0); break;
 		}
 		break;
@@ -38,12 +38,12 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevList, LPSTR lpCmdLine, INT nCmdShow)
 {
 #ifdef MESSAGE_BOX
-	MessageBox(NULL, "Привет мир!", "Hello", MB_YESNOCANCEL | MB_ICONINFORMATION | MB_HELP | MB_DEFBUTTON3 | MB_SYSTEMMODAL);
-	//NULL - родительское окно, NULL значит отсутствует
-	//"Привет мир!" - это сообщение
-	//"Hello" - это заголовок окна
-	//MB_OK - флаги, определяющие набор кнопок и значок окна
-	//Флаги - это биты, показывающие что включено, а что нет  
+	MessageBox(NULL, "ГЏГ°ГЁГўГҐГІ Г¬ГЁГ°!", "Hello", MB_YESNOCANCEL | MB_ICONINFORMATION | MB_HELP | MB_DEFBUTTON3 | MB_SYSTEMMODAL);
+	//NULL - СЂРѕРґРёС‚РµР»СЊСЃРєРѕРµ РѕРєРЅРѕ, NULL Р·РЅР°С‡РёС‚ РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚
+	//"РџСЂРёРІРµС‚ РјРёСЂ!" - СЌС‚Рѕ СЃРѕРѕР±С‰РµРЅРёРµ
+	//"Hello" - СЌС‚Рѕ Р·Р°РіРѕР»РѕРІРѕРє РѕРєРЅР°
+	//MB_OK - С„Р»Р°РіРё, РѕРїСЂРµРґРµР»СЏСЋС‰РёРµ РЅР°Р±РѕСЂ РєРЅРѕРїРѕРє Рё Р·РЅР°С‡РѕРє РѕРєРЅР°
+	//Р¤Р»Р°РіРё - СЌС‚Рѕ Р±РёС‚С‹, РїРѕРєР°Р·С‹РІР°СЋС‰РёРµ С‡С‚Рѕ РІРєР»СЋС‡РµРЅРѕ, Р° С‡С‚Рѕ РЅРµС‚ 
 #endif // MESSAGE_BOX
 
 	DialogBoxParam(hInstance, MAKEINTRESOURCE(IDD_DIALOG1), NULL, DlgProc, 0);
